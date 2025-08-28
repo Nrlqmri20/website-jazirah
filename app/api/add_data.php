@@ -17,7 +17,8 @@ try {
     $rencana_aksi = trim($_POST['rencanaAksi']);
     $output = trim($_POST['output']);
     $pjk = trim($_POST['pjk']);
-    $target_bulan = $_POST['target_bulan'] ?? null;
+    // $target_bulan = $_POST['target_bulan'] ?? null;
+    $tahun = intval($_POST['tahun']);
     $link = trim($_POST['link']);
     $progress = intval($_POST['progress']);
 
@@ -32,7 +33,7 @@ try {
     }
 
     // Validasi sederhana
-    if (!$kode_satker || !$rencana_kerja || !$rencana_aksi || !$output || !$pjk || !$target_bulan) {
+    if (!$kode_satker || !$rencana_kerja || !$rencana_aksi || !$output || !$tahun) {
         echo json_encode(['success' => false, 'message' => 'Semua field wajib diisi']);
         exit;
     }
@@ -44,8 +45,8 @@ try {
 
     if (!$deskripsi) {
         // Jika tidak ada, insert dulu ke tabel deskripsi
-        $stmt = $pdo->prepare("INSERT INTO deskripsi (id_deskripsi, sub_deskripsi, deskripsi_rencana_kinerja, deskripsi_rencana_aksi, deskripsi_rencana_output) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$id_deskripsi, $sub_deskripsi, $rencana_kerja, $rencana_aksi, $output]);
+        $stmt = $pdo->prepare("INSERT INTO deskripsi (id_deskripsi, sub_deskripsi, deskripsi_rencana_kinerja, deskripsi_rencana_aksi, deskripsi_rencana_output, tahun) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$id_deskripsi, $sub_deskripsi, $rencana_kerja, $rencana_aksi, $output, $tahun]);
         $id_desk = $pdo->lastInsertId();
     } else {
         $id_desk = $deskripsi['id_desk'];
@@ -58,8 +59,8 @@ try {
     }
 
     // Insert ke bukti_dukung
-    $stmt = $pdo->prepare("INSERT INTO bukti_dukung (id_desk, kode_satker, pjk, target_bulan, link, progress, id_pengguna) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$id_desk, $kode_satker, $pjk, $target_bulan, $link, $progress, $id_pengguna]);
+    $stmt = $pdo->prepare("INSERT INTO bukti_dukung (id_desk, kode_satker, pjk, link, progress, id_pengguna) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$id_desk, $kode_satker, $pjk, $link, $progress, $id_pengguna]);
 
 
     echo json_encode(['success' => true, 'message' => 'Data berhasil ditambahkan']);

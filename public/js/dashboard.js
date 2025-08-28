@@ -28,7 +28,7 @@ function loadDashboardData(filters = currentFilters) {
     `;
 
     // debug
-    // console.log('Load data dengan filter', filters);
+    console.log('Load data dengan filter', filters);
 
     // buat query string dari filter
     const params = new URLSearchParams(filters).toString();
@@ -56,7 +56,7 @@ function loadDashboardData(filters = currentFilters) {
                     <td>${item.rencana_aksi}</td>
                     <td>${item.output}</td>
                     <td>${item.pjk}</td>
-                    <td>${formatDate(item.target_bulan)}</td>
+                    <td>${item.tahun}</td>
                     <td>
                         ${item.link ? `
                             <a href="${item.link}" target="_blank" class="link-btn">
@@ -445,7 +445,8 @@ function fetchEditData(id) {
             document.getElementById('edit-rencana_aksi').value = item.deskripsi_rencana_aksi;
             document.getElementById('edit-output').value = item.deskripsi_rencana_output;
             document.getElementById('edit-pjk').value = item.pjk;
-            document.getElementById('edit-target_bulan').value = item.target_bulan;
+            // document.getElementById('edit-target_bulan').value = item.target_bulan;
+            document.getElementById('edit-tahun').value = item.tahun;
             document.getElementById('edit-link').value = item.link;
             document.getElementById('edit-progress').value = item.progress;
 
@@ -483,7 +484,8 @@ document.getElementById('form-edit').addEventListener('submit', function (e) {
         deskripsi_rencana_aksi: document.getElementById('edit-rencana_aksi').value,
         deskripsi_rencana_output: document.getElementById('edit-output').value,
         pjk: document.getElementById('edit-pjk').value,
-        target_bulan: document.getElementById('edit-target_bulan').value,
+        // target_bulan: document.getElementById('edit-target_bulan').value,
+        tahun: document.getElementById('edit-tahun').value,
         link: document.getElementById('edit-link').value,
         progress: document.getElementById('edit-progress').value,
     };

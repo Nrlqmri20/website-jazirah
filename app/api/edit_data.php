@@ -25,23 +25,24 @@ $rencana_kinerja = $data['deskripsi_rencana_kinerja'] ?? '';
 $rencana_aksi = $data['deskripsi_rencana_aksi'] ?? '';
 $output = $data['deskripsi_rencana_output'] ?? '';
 $pjk = $data['pjk'] ?? '';
-$target_bulan = $data['target_bulan'] ?? '';
+// $target_bulan = $data['target_bulan'] ?? '';
+$tahun = $data['tahun'] ?? '';
 $link = $data['link'] ?? '';
 $progress = $data['progress'] ?? '';
 
 try {
     // Update deskripsi
     $stmt1 = $pdo->prepare("UPDATE deskripsi 
-    SET id_deskripsi = ?, sub_deskripsi = ?, deskripsi_rencana_kinerja = ?, deskripsi_rencana_aksi = ?, deskripsi_rencana_output = ?
+    SET id_deskripsi = ?, sub_deskripsi = ?, deskripsi_rencana_kinerja = ?, deskripsi_rencana_aksi = ?, deskripsi_rencana_output = ?, tahun = ?
     WHERE id_desk = (SELECT id_desk FROM bukti_dukung WHERE id_pendukung = ?)");
-    $stmt1->execute([$id_deskripsi, $sub_deskripsi, $rencana_kinerja, $rencana_aksi, $output, $id]);
+    $stmt1->execute([$id_deskripsi, $sub_deskripsi, $rencana_kinerja, $rencana_aksi, $output, $tahun, $id]);
 
 
     // Update bukti_dukung
     $stmt2 = $pdo->prepare("UPDATE bukti_dukung 
-        SET pjk = ?, target_bulan = ?, link = ?, progress = ?
+        SET pjk = ?, link = ?, progress = ?
         WHERE id_pendukung = ?");
-    $stmt2->execute([$pjk, $target_bulan, $link, $progress, $id]);
+    $stmt2->execute([$pjk, $link, $progress, $id]);
 
     echo json_encode(['success' => true, 'message' => 'Data berhasil diperbarui']);
 } catch (PDOException $e) {

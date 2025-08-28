@@ -18,6 +18,7 @@ try {
                 d.deskripsi_rencana_kinerja AS rencana_kerja,
                 d.deskripsi_rencana_aksi AS rencana_aksi,
                 d.deskripsi_rencana_output AS output,
+                d.tahun,
                 bd.kode_satker,
                 bd.pjk,
                 bd.target_bulan,
@@ -55,6 +56,7 @@ try {
             d.deskripsi_rencana_kinerja AS rencana_kerja,
             d.deskripsi_rencana_aksi AS rencana_aksi,
             d.deskripsi_rencana_output AS output,
+            d.tahun,
             bd.pjk,
             bd.target_bulan,
             bd.link,
@@ -74,7 +76,7 @@ try {
 
     // Filter tahun
     if (!empty($tahun)) {
-        $query .= " AND YEAR(bd.target_bulan) = ?";
+        $query .= " AND d.tahun = ?";
         $params[] = $tahun;
     }
 

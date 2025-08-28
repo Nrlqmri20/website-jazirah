@@ -10,7 +10,7 @@ if (!$id) {
 }
 
 try {
-    $stmt = $pdo->prepare("SELECT d.id_desk, d.id_deskripsi, d.sub_deskripsi, d.deskripsi_rencana_kinerja, d.deskripsi_rencana_aksi, d.deskripsi_rencana_output, b.pjk, b.target_bulan, b.link, b.progress, b.id_pendukung FROM deskripsi d 
+    $stmt = $pdo->prepare("SELECT d.id_desk, d.id_deskripsi, d.sub_deskripsi, d.deskripsi_rencana_kinerja, d.deskripsi_rencana_aksi, d.deskripsi_rencana_output, d.tahun, b.pjk, b.link, b.progress, b.id_pendukung FROM deskripsi d 
                                     JOIN bukti_dukung b ON d.id_desk = b.id_desk 
                                     WHERE b.id_pendukung = ?");
 

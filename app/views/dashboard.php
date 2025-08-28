@@ -164,7 +164,7 @@ $username = htmlspecialchars($_SESSION['user']['username']);
                     </label>
                     <select class="filter-select" id="tahunFilter">
                         <option value="">Semua Tahun</option>
-                        <option value="2024">2023</option>
+                        <option value="2023">2023</option>
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
                         <option value="2026">2026</option>
@@ -211,7 +211,8 @@ $username = htmlspecialchars($_SESSION['user']['username']);
                             <th>Rencana Aksi</th>
                             <th>Output</th>
                             <th>PJK</th>
-                            <th>Target Bulan</th>
+                            <!-- <th>Target Bulan</th> -->
+                            <th>Tahun</th>
                             <th>Link Bukti</th>
                             <th>Progress</th>
                             <th>Aksi</th>
@@ -300,12 +301,22 @@ $username = htmlspecialchars($_SESSION['user']['username']);
 
                     <div class="form-group">
                         <label><i class="fas fa-user-tie input-icon"></i> PJK (Penanggung Jawab Kegiatan)</label>
-                        <input type="text" name="pjk" placeholder="Masukkan nama PJK..." required>
+                        <input type="text" name="pjk" placeholder="Masukkan nama PJK...">
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label><i class="fas fa-calendar-alt input-icon"></i> Target Bulan</label>
                         <input type="month" name="target_bulan" required>
+                    </div> -->
+
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-alt input-icon"></i> Tahun</label>
+                        <select name="tahun" id="" required>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -365,12 +376,22 @@ $username = htmlspecialchars($_SESSION['user']['username']);
 
                     <div class="form-group">
                         <label><i class="fas fa-user-tie input-icon"></i> PJK (Penanggung Jawab Kegiatan)</label>
-                        <input type="text" id="edit-pjk" name="pjk" placeholder="Masukkan nama PJK..." required>
+                        <input type="text" id="edit-pjk" name="pjk" placeholder="Masukkan nama PJK...">
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label><i class="fas fa-calendar-alt input-icon"></i> Target Bulan</label>
                         <input type="month" id="edit-target_bulan" name="target_bulan" required>
+                    </div> -->
+
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-alt input-icon"></i> Tahun</label>
+                        <select name="tahun" id="edit-tahun" required>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
                     </div>
 
                     <div class="form-group">

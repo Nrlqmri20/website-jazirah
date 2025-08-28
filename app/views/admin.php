@@ -48,7 +48,7 @@ $username = htmlspecialchars($_SESSION['user']['username']);
                             <span class="user-role"><?php echo $username ?></span>
                         </div>
                         <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        <!-- Dropdown Menu -->
+                        <!-- Droxpdown Menu -->
                         <div class="dropdown-menu dropdown-content" id="dropdown1">
                             <a href="profile.php" class="dropdown-item">
                                 <i class="fas fa-user-circle"></i>
