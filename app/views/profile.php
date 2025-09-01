@@ -52,11 +52,11 @@ $username = htmlspecialchars($_SESSION['user']['username']);
                         </div>
                         <!-- Dropdown Menu -->
                         <div class="dropdown-menu dropdown-content" id="dropdown1">
-                            <a href="profile.php" class="dropdown-item">
+                            <a href="admin.php" class="dropdown-item">
                                 <i class="fas fa-user-circle"></i>
                                 <span>Admin</span>
                             </a>
-                            <a href="admin.php" class="dropdown-item">
+                            <a href="dashboard.php" class="dropdown-item">
                                 <i class="fas fa-user-shield"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -269,33 +269,7 @@ $username = htmlspecialchars($_SESSION['user']['username']);
                     </div>
                 </form>
             </div>
-
-            <div class="profile-card">
-                <h3><i class="fas fa-user-cog"></i> Pengaturan Tampilan</h3>
-
-                <div class="info-item">
-                    <div class="info-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <div class="info-content">
-                        <div class="info-label">Theme</div>
-                        <div class="info-value">Light Mode (Default)</div>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <div class="info-content">
-                        <div class="info-label">Bahasa</div>
-                        <div class="info-value">Bahasa Indonesia</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+        
     <script src="../../public/js/profil.js"></script>
 </body>
 
