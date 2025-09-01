@@ -285,18 +285,18 @@ $username = htmlspecialchars($_SESSION['user']['username']);
 
                     <div class="form-group">
                         <label><i class="fas fa-clipboard-list input-icon"></i> Rencana Kerja</label>
-                        <input type="text" name="rencanaKerja" placeholder="Masukkan rencana kerja..." required>
+                        <input type="text" name="rencanaKerja" placeholder="Masukkan rencana kerja...">
                     </div>
 
                     <div class="form-group">
                         <label><i class="fas fa-tasks input-icon"></i> Rencana Aksi</label>
-                        <textarea name="rencanaAksi" placeholder="Masukkan rencana aksi..." required
+                        <textarea name="rencanaAksi" placeholder="Masukkan rencana aksi..."
                             rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label><i class="fas fa-bullseye input-icon"></i> Output</label>
-                        <input type="text" name="output" placeholder="Masukkan output yang diharapkan..." required>
+                        <input type="text" name="output" placeholder="Masukkan output yang diharapkan..."   >
                     </div>
 
                     <div class="form-group">
@@ -321,7 +321,7 @@ $username = htmlspecialchars($_SESSION['user']['username']);
 
                     <div class="form-group">
                         <label><i class="fas fa-link input-icon"></i> Link Bukti</label>
-                        <input type="url" name="link" placeholder="https://example.com/bukti" required>
+                        <input type="url" name="link" placeholder="https://example.com/bukti">
                     </div>
 
                     <div class="form-group">
